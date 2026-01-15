@@ -1,0 +1,110 @@
+body.vibe-nav-ready .vibe-sticky-cta {
+	position: relative;
+	z-index: 40;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.9rem;
+	padding: 0.4rem 0.8rem;
+	border: 1px solid var(--wp--preset--color--contrast-3);
+	border-radius: 999px;
+	background: var(--wp--preset--color--base);
+	transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+body.vibe-nav-ready .vibe-sticky-cta .vibe-cta-button {
+	white-space: nowrap;
+}
+
+body.vibe-nav-ready .vibe-sticky-cta .vibe-nav-links {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	max-width: 0;
+	opacity: 0;
+	overflow: hidden;
+	pointer-events: none;
+	transition: max-width 240ms ease, opacity 200ms ease;
+}
+
+body.vibe-nav-ready .vibe-sticky-cta .vibe-nav-links a {
+	color: var(--wp--preset--color--contrast);
+	font-size: 0.95rem;
+	text-decoration: none;
+}
+
+body.vibe-nav-ready .vibe-sticky-cta.vibe-nav-pinned {
+	position: fixed;
+	top: 0.75rem;
+	left: 50%;
+	transform: translateX(-50%);
+	box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+}
+
+body.vibe-nav-ready .vibe-sticky-cta.vibe-nav-expanded {
+	padding-left: 1.1rem;
+	padding-right: 1.1rem;
+	border-color: var(--wp--preset--color--contrast-2);
+}
+
+body.vibe-nav-ready .vibe-sticky-cta.vibe-nav-expanded .vibe-nav-links {
+	max-width: 520px;
+	opacity: 1;
+	pointer-events: auto;
+}
+
+@media (max-width: 720px) {
+	body.vibe-nav-ready .vibe-sticky-cta {
+		flex-wrap: wrap;
+		border-radius: 1.25rem;
+	}
+
+	body.vibe-nav-ready .vibe-sticky-cta .vibe-nav-links {
+		flex-wrap: wrap;
+		justify-content: center;
+		max-width: 100%;
+	}
+}
+
+#timeline {
+	position: relative;
+	--vibe-line-color: var(--wp--preset--color--contrast-3);
+	--vibe-line-shift: 0px;
+}
+
+#timeline::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	top: 0;
+	bottom: 0;
+	width: 1px;
+	background: var(--vibe-line-color);
+	transform: translateX(-50%) translateY(var(--vibe-line-shift));
+	transition: transform 200ms ease;
+	opacity: 0;
+	pointer-events: none;
+}
+
+#timeline.vibe-timeline-ready::before {
+	opacity: 1;
+}
+
+#timeline .vibe-timeline-item {
+	opacity: 0;
+	transform: translateY(12px);
+	transition: opacity 240ms ease, transform 240ms ease;
+}
+
+#timeline .vibe-timeline-item.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	body.vibe-nav-ready .vibe-sticky-cta,
+	#timeline::before,
+	#timeline .vibe-timeline-item {
+		transition: none;
+	}
+}
