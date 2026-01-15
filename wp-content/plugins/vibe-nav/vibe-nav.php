@@ -41,7 +41,7 @@ function vibe_nav_enqueue_assets() {
 		'window.VibeNavSettings = ' . wp_json_encode(
 			array(
 				'ctaSelector' => '.vibe-sticky-cta',
-				'ctaTextMatch' => 'View Case Studies',
+				'ctaTextMatch' => 'VIEW CASE STUDIES',
 				'pinThreshold' => 400,
 				'expandThreshold' => 600,
 				'navLinks' => array(
