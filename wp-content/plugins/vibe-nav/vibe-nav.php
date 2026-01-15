@@ -46,7 +46,7 @@ function vibe_nav_enqueue_assets() {
 				'expandThreshold' => 600,
 				'navLinks' => array(
 					array('label' => 'Home', 'href' => '/'),
-					array('label' => 'Case Studies', 'href' => '/projects'),
+					array('label' => 'Case Studies', 'href' => '/case-studies'),
 					array('label' => 'Contact', 'href' => '#contact'),
 				),
 			)
