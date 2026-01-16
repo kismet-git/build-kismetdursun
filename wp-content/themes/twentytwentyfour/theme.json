@@ -3,7 +3,13 @@
 	"version": 2,
 	"patterns": [
 		"three-columns-of-services",
-		"clients-section"
+		"clients-section",
+		"pattern-case-study-hero",
+		"pattern-case-study-section",
+		"pattern-case-study-highlight",
+		"pattern-case-study-cta",
+		"case-study-ai-roomshots",
+		"case-study-brain-memory-game"
 	],
 	"settings": {
 		"appearanceTools": true,
