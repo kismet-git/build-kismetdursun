@@ -274,7 +274,7 @@ Store images in object storage and return secure links
 
 Option B
 
-### Why did I choose Option B
+### Why did I choose Option
 
 - Lower memory usage
 - Lower bandwidth

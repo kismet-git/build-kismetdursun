@@ -1,138 +1,41 @@
 # build-kismetdursun
 
-Personal build environment for **Kismet Dursun** — a modern WordPress portfolio site built with block themes, custom plugins, and an AI-assisted workflow.
+Personal WordPress build environment for **Kismet Dursun**.
 
-This repo is not a theme demo. It is a **working system**: design, engineering, iteration, and documentation of real builds.
+This repository powers a live portfolio site and serves as a working sandbox for block-theme development, custom patterns, lightweight plugins, and AI-assisted workflows.
+
+It is an active system, not a demo or starter template.
 
 ---
 
 ## What This Repo Is
 
-- A production-grade WordPress site used as a **portfolio and experimentation lab**
-- A place to ship:
-  - Custom block patterns
-  - Theme token systems
-  - Purpose-built plugins
-  - AI-assisted development workflows
-- A living record of **how things were built**, not just what they look like
+- A production WordPress site used as a portfolio and experimentation space
+- A place to build and refine:
+  - Block patterns
+  - Theme tokens
+  - Small, purpose-built plugins
+- A record of how real projects are designed, built, and iterated
 
 ---
 
-## Core Stack
+## Stack (Current)
 
-- **WordPress** (block theme: Twenty Twenty-Four)
-- **Custom plugin**
-  - `vibe-nav` — sticky CTA → morphing nav + timeline reveal
-- **Theme tokens**
-  - `theme.json` driven color, type, spacing system
-- **Local dev**
-  - LocalWP
-- **Version control**
-  - Git + GitHub
-- **AI tooling**
-  - Codex for implementation
-  - Claude / v0 for planning and design exploration
+- WordPress (block theme: Twenty Twenty-Four)
+- Custom patterns (file-based)
+- Custom plugin(s) as needed
+- Local development via LocalWP
+- Git + GitHub for version control
+- AI-assisted development (used for planning, review, and implementation support)
 
 ---
 
-## Repo Structure
+## Notes
 
-wp-content/
-themes/
-twentytwentyfour/
-theme.json        # global tokens + block styles
-plugins/
-vibe-nav/
-vibe-nav.php
-assets/
-vibe-nav.css
-vibe-nav.js
-
-case-studies/
-brain-memory-game.md
-ai-roomshots.md
-
----
-
-## Design System Philosophy
-
-- **Minimal first**
-- **Color by exception**
-- **Typography over decoration**
-- **Structure over spectacle**
-
-Visual target: clean, readable, restrained — inspired by ideabrowser-style interfaces.
-
----
-
-## Custom Plugin: Vibe Nav
-
-## Purpose
-
-Turns a hero CTA into:
-
-- a pinned element at scroll  
-- then a morphing navigation bar  
-
-Drives:
-
-- sticky thresholds  
-- timeline reveal hooks  
-- nav link injection  
-
-## Location
-
-`wp-content/plugins/vibe-nav/`
-
-## Key config
-
-```php
-'ctaSelector'   => '.vibe-sticky-cta',
-'pinThreshold' => 400,
-'expandThreshold' => 600,
-
-
-## Pattern System
-
-All page sections are built as block patterns, not page-builder layouts.
-
-### Pattern goals
-- Reusable  
-- Token-driven  
-- Styleable without editing markup  
-- Portable across themes  
-
-### Current custom patterns
-- Hero — Build  
-- Timeline — Build  
-- Featured Case Studies — Build  
-- About — Build  
-- Contact — Build  
-
-Each pattern uses:
-- semantic groups  
-- utility classes for targeting  
-- zero inline styling  
-
----
-
-## Case Study Workflow
-
-Every major project is documented twice:  
-1. On the site — narrative case study  
-2. In this repo — technical log  
-
-Case study markdown includes:
-- constraints  
-- architecture  
-- prompts  
-- commits  
-- failures  
-- decisions  
-- outcomes  
-
-This is intentional.  
-Hiring managers read outcomes. Builders read process.
+- The codebase is intentionally minimal and evolving
+- Patterns and templates are treated as first-class building blocks
+- File-based sources are preferred over database-synced artifacts
+- Documentation is updated only when it reflects the current state of the system
 
 ---
 
