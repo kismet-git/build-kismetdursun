@@ -8,7 +8,11 @@
 		"pattern-case-study-section",
 		"pattern-case-study-highlight",
 		"pattern-case-study-cta",
+		"hero-build",
 		"timeline-build",
+		"featured-projects-build",
+		"about-build",
+		"contact-build",
 		"case-study-ai-roomshots",
 		"case-study-brain-memory-game"
 	],
