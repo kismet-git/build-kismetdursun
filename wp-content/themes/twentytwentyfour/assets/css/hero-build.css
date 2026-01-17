@@ -1,7 +1,7 @@
 .hero-build {
 	--hero-build-max-width: 100%;
 	--hero-build-content-padding: 10px;
-	--hero-build-padding-top: 56px;
+	--hero-build-padding-top: 106px;
 	--hero-build-padding-bottom: 72px;
 	--hero-build-min-height: 75vh;
 	--hero-build-headline-size: clamp(2.1rem, 8.5vw, 3rem);
@@ -19,8 +19,8 @@
 	--hero-build-cta-border: rgba(15, 15, 15, 0.18);
 	--hero-build-cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
 	--hero-build-icon-size: 56px;
-	--hero-build-icon-spread: 0.8;
-	--hero-build-icon-travel: 0.75;
+	--hero-build-icon-spread: 3.85;
+	--hero-build-icon-travel: 2;
 	--hero-build-icon-clamp: 1;
 	--hero-build-nav-width: 92vw;
 	--hero-build-nav-height: 52px;
@@ -333,7 +333,7 @@
 		--hero-build-sticky-top: 18px;
 		--hero-build-icon-size: 64px;
 		--hero-build-icon-spread: 0.9;
-		--hero-build-icon-travel: 0.85;
+		--hero-build-icon-travel: 1;
 		--hero-build-icon-clamp: 0;
 		--hero-build-nav-width: clamp(560px, 86vw, 840px);
 		--hero-build-nav-height: 54px;
@@ -367,8 +367,8 @@
 		--hero-build-cta-font-size: 12px;
 		--hero-build-cta-padding-x: 26px;
 		--hero-build-icon-size: 72px;
-		--hero-build-icon-spread: 1.05;
-		--hero-build-icon-travel: 0.9;
+		--hero-build-icon-spread: 1;
+		--hero-build-icon-travel: 1;
 		--hero-build-icon-clamp: 0;
 		--hero-build-nav-width: clamp(720px, 70vw, 980px);
 		--hero-build-nav-height: 56px;
