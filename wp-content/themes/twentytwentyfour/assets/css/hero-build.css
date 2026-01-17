@@ -1,8 +1,39 @@
 .hero-build {
+	--hero-build-max-width: 100%;
+	--hero-build-content-padding: 10px;
+	--hero-build-padding-top: 56px;
+	--hero-build-padding-bottom: 72px;
+	--hero-build-min-height: 75vh;
+	--hero-build-headline-size: clamp(2.1rem, 8.5vw, 3rem);
+	--hero-build-headline-max: 92vw;
+	--hero-build-headline-line-height: 1.1;
+	--hero-build-subtext-size: 15px;
+	--hero-build-subtext-max: 92vw;
+	--hero-build-subtext-margin-top: 16px;
+	--hero-build-subtext-margin-bottom: 18px;
+	--hero-build-cta-height: 40px;
+	--hero-build-cta-font-size: 12px;
+	--hero-build-cta-padding-x: 18px;
+	--hero-build-sticky-top: 14px;
+	--hero-build-cta-bg: var(--wp--preset--color--base, #fff);
+	--hero-build-cta-border: rgba(15, 15, 15, 0.18);
+	--hero-build-cta-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+	--hero-build-icon-size: 56px;
+	--hero-build-icon-spread: 0.8;
+	--hero-build-icon-travel: 0.75;
+	--hero-build-icon-clamp: 1;
+	--hero-build-nav-width: 92vw;
+	--hero-build-nav-height: 52px;
+	--hero-build-nav-padding-y: 12px;
+	--hero-build-nav-padding-x: 16px;
+	--hero-build-nav-link-gap: 16px;
+	--hero-build-nav-font-size: 13px;
+	--hero-build-nav-shadow: 0 16px 32px rgba(0, 0, 0, 0.16);
 	position: relative;
 	overflow: visible;
-	padding-top: 94px;
-	padding-bottom: 86px;
+	padding-top: var(--hero-build-padding-top);
+	padding-bottom: var(--hero-build-padding-bottom);
+	min-height: var(--hero-build-min-height);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -23,14 +54,15 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	max-width: 1100px;
-	padding: 0 24px;
+	max-width: var(--hero-build-max-width);
+	padding: 0 var(--hero-build-content-padding);
 	text-align: center;
 }
 
 .hero-build .wp-block-heading,
 .hero-build .wp-block-buttons,
-.hero-build p {
+.hero-build p,
+.hero-build .wp-block-group {
 	position: relative;
 	z-index: 2;
 }
@@ -40,59 +72,92 @@
 	top: 0;
 	left: 0;
 	display: block;
-	opacity: 1;
+	opacity: 0.94;
 	visibility: visible;
-	width: var(--hero-build-icon-size, 72px);
-	height: var(--hero-build-icon-size, 72px);
-	border-radius: 18px;
-	box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15);
+	width: var(--hero-build-icon-size);
+	height: var(--hero-build-icon-size);
+	border-radius: 16px;
+	filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.18)) drop-shadow(0 0 16px rgba(255, 255, 255, 0.25));
 	transform-origin: center;
 	will-change: transform;
 }
 
 .hero-build .wp-block-heading {
-	font-size: clamp(3.648rem, 6.156vw, 5.472rem);
+	font-size: var(--hero-build-headline-size);
+	line-height: var(--hero-build-headline-line-height);
 	letter-spacing: -0.01em;
-	margin-bottom: 0.6rem;
+	max-width: var(--hero-build-headline-max);
+	margin: 0 auto;
+	text-wrap: balance;
 }
 
 .hero-build p {
-	margin-top: 0;
-	margin-bottom: 1.25rem;
+	margin-top: var(--hero-build-subtext-margin-top);
+	margin-bottom: var(--hero-build-subtext-margin-bottom);
+	font-size: var(--hero-build-subtext-size);
+	max-width: var(--hero-build-subtext-max);
 }
 
-.hero-build__cta.wp-block-buttons {
+.hero-build__cta.wp-block-group {
+	--hero-build-cta-x: 0px;
+	--hero-build-cta-y: 0px;
+	--hero-build-cta-scale-x: 1;
+	--hero-build-cta-scale-y: 1;
+	--hero-build-cta-offset: 0%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: fit-content;
-	max-width: 100%;
+	max-width: 92vw;
 	margin: 0 auto;
 	padding: 0;
-	background: transparent;
-	border: 0;
-	margin-top: 0.4rem;
-	transition: width 220ms ease, transform 220ms ease, padding 220ms ease, background-color 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+	height: var(--hero-build-cta-height);
+	background: var(--hero-build-cta-bg);
+	border: 1px solid var(--hero-build-cta-border);
+	border-radius: 9999px;
+	box-sizing: border-box;
+	overflow: hidden;
+	box-shadow: var(--hero-build-cta-shadow);
+	transform: translateX(var(--hero-build-cta-offset)) translate3d(var(--hero-build-cta-x), var(--hero-build-cta-y), 0) scale(var(--hero-build-cta-scale-x), var(--hero-build-cta-scale-y));
+	transition: transform 420ms cubic-bezier(0.22, 1, 0.36, 1), width 360ms cubic-bezier(0.22, 1, 0.36, 1), padding 360ms cubic-bezier(0.22, 1, 0.36, 1), background-color 220ms ease, box-shadow 220ms ease;
+	will-change: transform, width;
 	transform-origin: center;
 	position: relative;
 	z-index: 3;
 }
 
-.hero-build__cta .wp-block-button {
+.hero-build__cta .wp-block-buttons {
+	display: flex;
+	align-items: center;
 	margin: 0;
+	height: 100%;
+	background: transparent;
+	border: 0;
+}
+
+.hero-build__cta .hero-build__cta-button {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	margin: 0;
+	background: transparent;
+	border: 0;
 }
 
 .hero-build__cta .hero-build__cta-button .wp-block-button__link {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1.1rem;
-	padding: 1rem 2.4rem;
-	border: 1px solid var(--wp--preset--color--contrast-2, var(--wp--preset--color--contrast, currentColor));
+	font-size: var(--hero-build-cta-font-size);
+	height: 100%;
+	padding: 0 var(--hero-build-cta-padding-x);
+	border-radius: 9999px;
+	border: 0;
 	box-shadow: none;
 	background: transparent;
 	outline: 0;
-	transition: border-color 220ms ease, background-color 220ms ease, color 220ms ease;
+	letter-spacing: 0.02em;
+	transition: color 220ms ease;
 }
 
 .hero-build__cta .hero-build__cta-button .wp-block-button__link::before,
@@ -102,32 +167,114 @@
 }
 
 .hero-build__cta .hero-build__cta-button .wp-block-button__link:focus-visible {
-	background-color: var(--wp--preset--color--base-2, rgba(0, 0, 0, 0.04));
-	box-shadow: none;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.18);
 }
 
 .hero-build__cta .hero-build__cta-button .wp-block-button__link:hover {
-	background-color: var(--wp--preset--color--base-2, rgba(0, 0, 0, 0.04));
+	color: inherit;
 }
 
 .hero-build__cta.is-sticky {
 	position: fixed;
-	top: 18px;
+	top: var(--hero-build-sticky-top);
 	left: 50%;
-	transform: translateX(-50%);
+	--hero-build-cta-offset: -50%;
 }
 
 .hero-build__cta.is-expanded {
-	width: min(960px, 92vw);
-	padding: 0.35rem;
-	background-color: var(--wp--preset--color--base, #fff);
-	border-radius: 999px;
-	box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+	width: var(--hero-build-nav-width);
+	height: var(--hero-build-nav-height);
+	padding: var(--hero-build-nav-padding-y) var(--hero-build-nav-padding-x);
+	box-shadow: var(--hero-build-nav-shadow);
+}
+
+.hero-build__cta.is-expanded .hero-build__cta-button {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
 }
 
 .hero-build__cta.is-expanded .hero-build__cta-button .wp-block-button__link {
 	border-color: transparent;
 	background-color: transparent;
+	box-shadow: none;
+}
+
+.hero-build__cta-nav {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+}
+
+.hero-build__cta.is-expanded .hero-build__cta-nav {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+}
+
+.hero-build__cta-nav-inner {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.hero-build__cta-logo {
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	background-color: rgba(0, 0, 0, 0.08);
+	flex: 0 0 auto;
+}
+
+.hero-build__cta-links {
+	display: flex;
+	align-items: center;
+	gap: var(--hero-build-nav-link-gap);
+	font-size: var(--hero-build-nav-font-size);
+	margin: 0;
+	white-space: nowrap;
+}
+
+.hero-build__cta-links a {
+	text-decoration: none;
+	color: inherit;
+	letter-spacing: 0.01em;
+}
+
+.hero-build__cta-links a:hover,
+.hero-build__cta-links a:focus-visible {
+	opacity: 0.7;
+}
+
+.hero-build__icon--local,
+.hero-build__icon--vercel {
+	display: none;
+}
+
+.hero-build__cta-spacer {
+	height: 0;
+	width: 100%;
+	transition: height 220ms ease;
+}
+
+.hero-build__cta.is-sticky + .hero-build__cta-spacer {
+	height: var(--hero-build-cta-height);
+}
+
+.hero-build__cta.is-expanded + .hero-build__cta-spacer {
+	height: var(--hero-build-nav-height);
+}
+
+.hero-build__debug-anchor,
+.hero-build__debug-readout {
+	display: none;
 }
 
 .hero-build.is-debug .hero-build__icons {
@@ -138,42 +285,116 @@
 	outline: 1px dashed blue;
 }
 
-@media (max-width: 900px) {
+.hero-build.is-debug .hero-build__debug-anchor {
+	display: block;
+	position: absolute;
+	left: var(--hero-build-anchor-x, 50%);
+	top: var(--hero-build-anchor-y, 50%);
+	width: 12px;
+	height: 12px;
+	border-radius: 999px;
+	border: 2px solid #ff3b30;
+	background-color: rgba(255, 59, 48, 0.2);
+	transform: translate(-50%, -50%);
+	z-index: 4;
+}
+
+.hero-build.is-debug .hero-build__debug-readout {
+	display: block;
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	padding: 4px 6px;
+	border-radius: 6px;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: #fff;
+	font-size: 12px;
+	letter-spacing: 0.02em;
+	z-index: 4;
+}
+
+@media (min-width: 768px) {
 	.hero-build {
-		--hero-build-icon-size: 60px;
+		--hero-build-max-width: 1100px;
+		--hero-build-content-padding: 28px;
+		--hero-build-padding-top: 80px;
+		--hero-build-padding-bottom: 108px;
+		--hero-build-min-height: 70vh;
+		--hero-build-headline-size: clamp(2.75rem, 5.2vw, 3.75rem);
+		--hero-build-headline-max: 86vw;
+		--hero-build-headline-line-height: 1.08;
+		--hero-build-subtext-size: 16px;
+		--hero-build-subtext-max: 680px;
+		--hero-build-subtext-margin-top: 18px;
+		--hero-build-subtext-margin-bottom: 22px;
+		--hero-build-cta-height: 42px;
+		--hero-build-cta-font-size: 12px;
+		--hero-build-cta-padding-x: 22px;
+		--hero-build-sticky-top: 18px;
+		--hero-build-icon-size: 64px;
+		--hero-build-icon-spread: 0.9;
+		--hero-build-icon-travel: 0.85;
+		--hero-build-icon-clamp: 0;
+		--hero-build-nav-width: clamp(560px, 86vw, 840px);
+		--hero-build-nav-height: 54px;
+		--hero-build-nav-padding-y: 14px;
+		--hero-build-nav-padding-x: 20px;
+		--hero-build-nav-link-gap: 18px;
+		--hero-build-nav-font-size: 14px;
+	}
+
+	.hero-build__icon--local,
+	.hero-build__icon--vercel {
+		display: block;
 	}
 }
 
-@media (max-width: 640px) {
+@media (min-width: 1024px) {
 	.hero-build {
-		--hero-build-icon-size: 52px;
-		padding-top: 66px;
-		padding-bottom: 66px;
-	}
-
-	.hero-build .wp-block-heading {
-		font-size: clamp(2.736rem, 9.12vw, 3.1rem);
-	}
-
-	.hero-build__content {
-		max-width: 100%;
-		padding: 0 20px;
-	}
-
-	.hero-build__cta .hero-build__cta-button .wp-block-button__link {
-		font-size: 1rem;
-		padding: 0.8rem 1.8rem;
+		--hero-build-max-width: 1200px;
+		--hero-build-content-padding: 32px;
+		--hero-build-padding-top: 96px;
+		--hero-build-padding-bottom: 132px;
+		--hero-build-min-height: 70vh;
+		--hero-build-headline-size: clamp(3.25rem, 4.8vw, 5rem);
+		--hero-build-headline-max: 1200px;
+		--hero-build-headline-line-height: 1.08;
+		--hero-build-subtext-size: clamp(16px, 1.2vw, 18px);
+		--hero-build-subtext-max: 680px;
+		--hero-build-subtext-margin-top: 20px;
+		--hero-build-subtext-margin-bottom: 26px;
+		--hero-build-cta-height: 44px;
+		--hero-build-cta-font-size: 12px;
+		--hero-build-cta-padding-x: 26px;
+		--hero-build-icon-size: 72px;
+		--hero-build-icon-spread: 1.05;
+		--hero-build-icon-travel: 0.9;
+		--hero-build-icon-clamp: 0;
+		--hero-build-nav-width: clamp(720px, 70vw, 980px);
+		--hero-build-nav-height: 56px;
+		--hero-build-nav-padding-y: 16px;
+		--hero-build-nav-padding-x: 24px;
+		--hero-build-nav-link-gap: 20px;
+		--hero-build-nav-font-size: 14px;
 	}
 }
 
-@media (min-width: 1200px) {
-	.hero-build {
-		padding-top: 80px;
-		padding-bottom: 72px;
+@media (prefers-reduced-motion: reduce) {
+	.hero-build *,
+	.hero-build *::before,
+	.hero-build *::after {
+		transition: none !important;
+		animation: none !important;
+	}
+}
+
+@media (max-width: 420px) {
+	.hero-build__cta-links {
+		gap: 12px;
+		font-size: 13px;
 	}
 
-	.hero-build__content {
-		max-width: 1200px;
-		padding: 0 32px;
+	.hero-build__cta-links a[href=\"/blog\"] {
+		display: none;
 	}
 }
