@@ -221,6 +221,46 @@ endif;
 add_action( 'wp_enqueue_scripts', 'twentytwentyfour_enqueue_timeline_build_assets' );
 
 /**
+ * Enqueue hero build assets on the front page.
+ */
+if ( ! function_exists( 'twentytwentyfour_enqueue_hero_build_assets' ) ) :
+	/**
+	 * Enqueue hero build styles and scripts when needed.
+	 *
+	 * @since Twenty Twenty-Four 1.0
+	 * @return void
+	 */
+	function twentytwentyfour_enqueue_hero_build_assets() {
+		if ( ! is_front_page() ) {
+			return;
+		}
+
+		$css_path = get_parent_theme_file_path( 'assets/css/hero-build.css' );
+		if ( file_exists( $css_path ) ) {
+			wp_enqueue_style(
+				'twentytwentyfour-hero-build',
+				get_parent_theme_file_uri( 'assets/css/hero-build.css' ),
+				array(),
+				filemtime( $css_path )
+			);
+		}
+
+		$js_path = get_parent_theme_file_path( 'assets/js/hero-build.js' );
+		if ( file_exists( $js_path ) ) {
+			wp_enqueue_script(
+				'twentytwentyfour-hero-build',
+				get_parent_theme_file_uri( 'assets/js/hero-build.js' ),
+				array(),
+				filemtime( $js_path ),
+				true
+			);
+		}
+	}
+endif;
+
+add_action( 'wp_enqueue_scripts', 'twentytwentyfour_enqueue_hero_build_assets' );
+
+/**
  * Register pattern categories.
  */
 
